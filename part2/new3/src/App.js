@@ -1,55 +1,9 @@
 import React from 'react'
-
-const Header = ({ course }) => {
-  return (
-    <h1>{course.name}</h1>
-  )
-}
-
-const Total = ({ course }) => {
-  const parts = course.parts
-  const g =0
-  const sum = parts.reduce((b, s, r,a)=> {
-    console.log('Jeez',g,s.exercises,r,a)
-    return g + 1
-  })
-  return(
-    <p><b>Number of exercises {sum}</b></p>
-  ) 
-}
-
-const Part = (props) => {
-  return (
-    <p>
-      {props.part.name} {props.part.exercises}
-    </p>    
-  )
-}
-
-const Content = ({ course }) => {
-  return (
-    <div>
-      <Part part={course.parts[0]} />
-      <Part part={course.parts[1]} />
-      <Part part={course.parts[2]} />
-      <Part part={course.parts[3]} />
-    </div>
-  )
-}
-
-const Course = ({ course }) => {
-  return(
-    <>
-      <Header course={course} />
-      <Content course={course} /> 
-      <Total course={course} /> 
-          
-    </>
-  )
-}
+import Course from './components/Course'
 
 const App = () => {
-  const course = {
+  const courses = [
+    {
     id: 1,
     name: 'Half Stack application development',
     parts: [
@@ -74,8 +28,31 @@ const App = () => {
         id: 4
       }
     ]
+  }, 
+  {
+    name: 'Node.js',
+    id: 2,
+    parts: [
+      {
+        name: 'Routing',
+        exercises: 3,
+        id: 1
+      },
+      {
+        name: 'Middlewares',
+        exercises: 7,
+        id: 2
+      }
+    ]
   }
+]
 
-  return <Course course={course} />
+  return (
+  <div>
+    <h1>Web development curriculum</h1>
+    <Course course={courses[0]} />
+    <Course course={courses[1]} />
+  </div>
+  )
 }
 export default App;
