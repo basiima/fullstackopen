@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import Note from './components/Note'
 
@@ -25,7 +26,7 @@ const App = (props) => {
   }
 
   const notesToShow = showAll
-  ? notes 
+  ? notes
   : notes.filter(note => note.important)
 
   return (
@@ -37,15 +38,15 @@ const App = (props) => {
         </button>
       </div>
       <ul>
-        {notesToShow.map(note => 
+        {notesToShow.map(note =>
             <Note key={note.id} note={note} />
         )}
       </ul>
       <form onSubmit={addNote}>
-        <input value={newNote} onChange={handleNoteChange}/>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-        <button type="submit">save</button>                                         
-      </form>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-    </div>                                                                                                                                                                          
+        <input value={newNote} onChange={handleNoteChange}/>                                                                                                                                                                    
+        <button type="submit">save</button>
+      </form>
+    </div>
   )
 }
 
